@@ -1,0 +1,20 @@
+{
+    "asset": "4938233c48b44a647923b15ca3296d9f",
+    "fileName": "0198dcae-9850-7ec6-9033-053f39fdbd02.png",
+    "prompt": "Change its color to black",
+    "negativePrompt": "",
+    "model": "787326f6-4195-408c-8012-e5e36c22521e",
+    "modelName": "Cartoon 3D",
+    "customSeed": -1,
+    "w3CTraceId": "c62ecc184ff7d6c87a49a5d2a2ac2f57",
+    "refinementMode": "Generation",
+    "pixelateTargetSize": 0,
+    "pixelateKeepImageSize": false,
+    "pixelatePixelBlockSize": 0,
+    "pixelateMode": 0,
+    "pixelateOutlineThickness": 0,
+    "doodles": {
+        "m_Items": []
+    },
+    "upscaleFactor": 0
+}

@@ -1,0 +1,13 @@
+{
+    "asset": "097da06b42eafaf4cb490bda015f6fdd",
+    "fileName": "0198dcaf-9a0c-7846-aa4a-8142b2667f8c.wav",
+    "prompt": "Door Open",
+    "negativePrompt": "",
+    "model": "0ee39b33-2893-4e0f-8c46-0e0bdd4eda85",
+    "modelName": "Text to Sound",
+    "customSeed": -1,
+    "w3CTraceId": "4654757a78417d87d09152663019bae1",
+    "duration": 10.0,
+    "autoTrim": false,
+    "hasReference": false
+}

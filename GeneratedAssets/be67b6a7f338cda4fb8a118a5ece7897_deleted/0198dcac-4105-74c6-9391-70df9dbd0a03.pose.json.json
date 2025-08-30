@@ -1,0 +1,11 @@
+{
+    "asset": "be67b6a7f338cda4fb8a118a5ece7897",
+    "fileName": "0198dcac-4105-74c6-9391-70df9dbd0a03.pose.json",
+    "prompt": "Cricket cover drive",
+    "negativePrompt": "",
+    "model": "a9c27ca4-3ec9-43e8-96cd-ee891aba64c5",
+    "modelName": "Text to Motion",
+    "customSeed": 1535214005,
+    "w3CTraceId": "f9df27557ad20ec197f7b5494eeed4bf",
+    "isTrimmed": false
+}

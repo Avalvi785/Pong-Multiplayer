@@ -1,0 +1,11 @@
+{
+    "asset": "be67b6a7f338cda4fb8a118a5ece7897",
+    "fileName": "0198dca5-57c9-7af3-b3a7-1f242869bd51.pose.json",
+    "prompt": "Generate crouch",
+    "negativePrompt": "",
+    "model": "a9c27ca4-3ec9-43e8-96cd-ee891aba64c5",
+    "modelName": "Text to Motion",
+    "customSeed": 1705824304,
+    "w3CTraceId": "37898f0e0e0cde6911e2cf156d402a1b",
+    "isTrimmed": false
+}

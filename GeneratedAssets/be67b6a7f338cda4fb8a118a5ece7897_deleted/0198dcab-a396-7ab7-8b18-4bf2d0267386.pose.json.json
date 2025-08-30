@@ -1,0 +1,11 @@
+{
+    "asset": "be67b6a7f338cda4fb8a118a5ece7897",
+    "fileName": "0198dcab-a396-7ab7-8b18-4bf2d0267386.pose.json",
+    "prompt": "Long jump",
+    "negativePrompt": "",
+    "model": "a9c27ca4-3ec9-43e8-96cd-ee891aba64c5",
+    "modelName": "Text to Motion",
+    "customSeed": 1985994954,
+    "w3CTraceId": "d24fb8afd6e4260b78a1eaa182205b04",
+    "isTrimmed": false
+}

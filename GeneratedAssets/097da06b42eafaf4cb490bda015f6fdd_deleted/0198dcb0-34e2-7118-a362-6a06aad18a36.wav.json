@@ -1,0 +1,13 @@
+{
+    "asset": "097da06b42eafaf4cb490bda015f6fdd",
+    "fileName": "0198dcb0-34e2-7118-a362-6a06aad18a36.wav",
+    "prompt": "Character Walk",
+    "negativePrompt": "",
+    "model": "0ee39b33-2893-4e0f-8c46-0e0bdd4eda85",
+    "modelName": "Text to Sound",
+    "customSeed": -1,
+    "w3CTraceId": "d002a81780c3c656390e86b485f44325",
+    "duration": 10.0,
+    "autoTrim": false,
+    "hasReference": false
+}
