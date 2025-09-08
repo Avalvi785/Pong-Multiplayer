@@ -16,12 +16,17 @@ public class Ball : NetworkBehaviour
     {
         if (Object.HasStateAuthority) // Only server moves the ball
         {
+            rb.bodyType= RigidbodyType2D.Dynamic;
             Vector2 dir = new Vector2(
             Random.value < 0.5f ? -1 : 1,
             Random.Range(-0.5f, 0.5f)
         ).normalized;
-
+            
             rb.linearVelocity = dir * speed;
+        }
+        else
+        {
+            rb.bodyType = RigidbodyType2D.Kinematic;
         }
     }
 
