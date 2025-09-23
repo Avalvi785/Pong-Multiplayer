@@ -361,6 +361,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7434847c1f68b9841a14bd35a30be87a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawner: {fileID: 0}
 --- !u!1 &1066118569
 GameObject:
   m_ObjectHideFlags: 0
@@ -370,8 +371,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1066118572}
-  - component: {fileID: 1066118571}
-  - component: {fileID: 1066118570}
+  - component: {fileID: 1066118574}
+  - component: {fileID: 1066118573}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -379,38 +380,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1066118570
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1066118569}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SortKey: 1864602665
-  ObjectInterest: 1
-  Flags: 262145
-  NestedObjects: []
-  NetworkedBehaviours:
-  - {fileID: 1066118571}
-  ForceRemoteRenderTimeframe: 0
---- !u!114 &1066118571
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1066118569}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fca9ce7f7279c848a4a48a27e14dc58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Ball: {fileID: 6151317132710350102, guid: 2aba37e7a86d2e84183160f027f2bed7, type: 3}
 --- !u!4 &1066118572
 Transform:
   m_ObjectHideFlags: 0
@@ -426,6 +395,42 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1066118573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1066118569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Fusion.Runtime.dll::Fusion.NetworkObject
+  SortKey: 333000134
+  ObjectInterest: 1
+  Flags: 131073
+  NestedObjects: []
+  NetworkedBehaviours:
+  - {fileID: 1066118574}
+  ForceRemoteRenderTimeframe: 0
+--- !u!114 &1066118574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1066118569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fca9ce7f7279c848a4a48a27e14dc58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Spawner
+  PlayerPrefab: {fileID: 3332152468614936649, guid: b805731cc5a2cd6489bba23a2966f966, type: 3}
+  Ball: {fileID: 6151317132710350102, guid: 2aba37e7a86d2e84183160f027f2bed7, type: 3}
+  spawnPositions:
+  - {x: -7, y: 0, z: 0}
+  - {x: 7, y: 0, z: 0}
 --- !u!1 &1144189920
 GameObject:
   m_ObjectHideFlags: 0
@@ -471,7 +476,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1317368844}
   - component: {fileID: 1317368845}
-  - component: {fileID: 1317368846}
   m_Layer: 0
   m_Name: FusionInitializer
   m_TagString: Untagged
@@ -506,31 +510,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 095f002ae9b4ab34988ca3986eca3ba8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 3332152468614936649, guid: b805731cc5a2cd6489bba23a2966f966, type: 3}
-  Ball: {fileID: 6151317132710350102, guid: 2aba37e7a86d2e84183160f027f2bed7, type: 3}
-  spawnPositions:
-  - {x: -7, y: 0}
-  - {x: 7, y: 0}
-  playerColors:
-  - {r: 1, g: 0, b: 0, a: 1}
-  - {r: 0, g: 0.07224822, b: 1, a: 1}
---- !u!114 &1317368846
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1317368843}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9fd79d79a0fb459ababab9a78f00caa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Fusion.Addons.Physics::Fusion.Addons.Physics.RunnerSimulatePhysics2D
-  _physicsAuthority: 2
-  _physicsTiming: 3
-  ClientPhysicsSimulation: 3
-  DeltaTimeMultiplier: 1
-  SetUnityFixedTimestep: 0
 --- !u!1 &1545150949
 GameObject:
   m_ObjectHideFlags: 0
@@ -955,6 +934,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7434847c1f68b9841a14bd35a30be87a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawner: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

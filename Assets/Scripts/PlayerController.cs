@@ -1,39 +1,37 @@
 ﻿using Fusion;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : NetworkBehaviour
 {
-    public float Speed;
+    public float Speed = 5f;
 
-    private Vector2 lastTargetY;
+    public float TargetY { get; set; }
 
-    public override void Spawned()
+
+    private void Update()
     {
-        if (Object.HasInputAuthority) // or some condition
+#if UNITY_EDITOR || UNITY_STANDALONE
+        if (Input.GetMouseButton(0))
         {
-            Runner.SetIsSimulated(Object, true);
+            Vector3 worldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            TargetY = worldPos.y;
         }
+#else
+        if (Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0);
+            Vector3 worldPos = Camera.main.ScreenToWorldPoint(touch.position);
+           targetY = worldPos.y;d
+        }
+#endif
+
     }
 
     public override void FixedUpdateNetwork()
     {
-        if (GetInput(out NetworkInputData data) && data.HasInput)
-        {
-            lastTargetY = new Vector2(transform.position.x, data.position.y);
-
-            float diffY = lastTargetY.y - transform.position.y;
-
-            if (Mathf.Abs(diffY) > 0.01f)
-            {
-                float dir = Mathf.Sign(diffY);
-                transform.Translate(0, dir * Speed *Runner.DeltaTime, 0);
-            }
-            else
-            {
-                transform.position = lastTargetY; // snap to target Y
-            }
-        }
+        Vector3 pos = transform.position;
+        pos.y = Mathf.MoveTowards(pos.y, TargetY, Speed * Runner.DeltaTime);
+        transform.position = pos;
     }
 }
 

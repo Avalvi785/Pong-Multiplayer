@@ -14,19 +14,20 @@ public class Ball : NetworkBehaviour
 
     public override void Spawned()
     {
-        if (Object.HasStateAuthority) // Only server moves the ball
+        if (HasStateAuthority)
         {
-            rb.bodyType= RigidbodyType2D.Dynamic;
+            rb.bodyType = RigidbodyType2D.Dynamic;
+
             Vector2 dir = new Vector2(
-            Random.value < 0.5f ? -1 : 1,
-            Random.Range(-0.5f, 0.5f)
-        ).normalized;
-            
+                Random.value < 0.5f ? -1 : 1,
+                Random.Range(-0.5f, 0.5f)
+            ).normalized;
+
             rb.linearVelocity = dir * speed;
         }
         else
         {
-            rb.bodyType = RigidbodyType2D.Kinematic;
+            rb.bodyType = RigidbodyType2D.Kinematic; // Remote clients don’t simulate
         }
     }
 

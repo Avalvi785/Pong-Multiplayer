@@ -5,17 +5,11 @@ using Fusion.Sockets;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Fusion.Addons.Physics;
 
-public class FusionInitializer : MonoBehaviour, INetworkRunnerCallbacks
+public class FusionInitializer : SimulationBehaviour, INetworkRunnerCallbacks
 {
-    [SerializeField] private GameObject playerPrefab;
-    [SerializeField] private GameObject Ball;
-
-    [SerializeField] private Vector2[] spawnPositions;
-    [SerializeField] private Color[] playerColors;
-
     private NetworkRunner runner;
+
     private void Awake()
     {
         Application.targetFrameRate = 60;
@@ -24,22 +18,15 @@ public class FusionInitializer : MonoBehaviour, INetworkRunnerCallbacks
 
     async void StartGame(GameMode mode)
     {
-        // Create the Fusion runner and let it know that we will be providing user input
         runner = gameObject.AddComponent<NetworkRunner>();
         runner.ProvideInput = true;
 
-        // Create the NetworkSceneInfo from the current scene
+        // Scene setup
         var scene = SceneRef.FromIndex(SceneManager.GetActiveScene().buildIndex);
-        var sceneInfo = new NetworkSceneInfo();
-        if (scene.IsValid)
-        {
-            sceneInfo.AddSceneRef(scene, LoadSceneMode.Additive);
-        }
 
-        // Start or join (depends on gamemode) a session with a specific name
         await runner.StartGame(new StartGameArgs()
         {
-            GameMode = mode,
+            GameMode = mode, // Shared instead of Host/Client
             SessionName = "TestRoom",
             Scene = scene,
             SceneManager = gameObject.AddComponent<NetworkSceneManagerDefault>(),
@@ -50,41 +37,16 @@ public class FusionInitializer : MonoBehaviour, INetworkRunnerCallbacks
     {
         if (runner == null)
         {
-            if (GUI.Button(new Rect(0, 0, 200, 40), "Host"))
+            if (GUI.Button(new Rect(0, 0, 200, 40), "Start Shared Mode"))
             {
-                StartGame(GameMode.Host);
-            }
-            if (GUI.Button(new Rect(0, 40, 200, 40), "Join"))
-            {
-                StartGame(GameMode.Client);
+                StartGame(GameMode.Shared); // <-- change here
             }
         }
-    }
-
-    public void Initialize(NetworkRunner runner)
-    {
     }
 
     public void OnPlayerJoined(NetworkRunner runner, PlayerRef player)
     {
-        int currentCount = runner.ActivePlayers.Count();
-        int maxPlayers = runner.Config.Simulation.PlayerCount; // or your own defined value
-
-        if (runner.IsServer)
-        {
-            int playerIndex = player.RawEncoded % spawnPositions.Length;
-
-            // Spawn player at unique position
-            NetworkObject playerObj = runner.Spawn(playerPrefab, spawnPositions[playerIndex], Quaternion.identity, player);
-            // Assign color
-            PlayerVisuals playerVisuals = playerObj.GetComponentInChildren<PlayerVisuals>();
-            playerVisuals.PlayerColor = playerColors[playerIndex];
-
-            if (runner.ActivePlayers.Count() >= 2)
-            {
-                Spawner.Instance.SpawnBall();
-            }
-        }
+       
     }
 
     public void Shutdown(NetworkRunner runner)

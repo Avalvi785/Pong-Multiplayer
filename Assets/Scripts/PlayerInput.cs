@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class PlayerInput : NetworkBehaviour, INetworkRunnerCallbacks
 {
+
     public override void Spawned()
     {
         if (Object.HasInputAuthority)
@@ -17,27 +18,26 @@ public class PlayerInput : NetworkBehaviour, INetworkRunnerCallbacks
     public void OnInput(NetworkRunner runner, NetworkInput input)
     {
         NetworkInputData data = new NetworkInputData();
-        data.HasInput = false;
+
 #if UNITY_EDITOR || UNITY_STANDALONE
-        if (Input.GetMouseButton(0)) // left click hold
+        if (Input.GetMouseButton(0))
         {
             Vector3 worldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            data.position = worldPos;
+            data.targetY = worldPos.y;
             data.HasInput = true;
         }
 #else
-        // MOBILE input
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
             Vector3 worldPos = Camera.main.ScreenToWorldPoint(touch.position);
-        data.position = worldPos;
-        data.HasInput = true;
+            data.targetY = worldPos.y;
+            data.HasInput = true;
         }
 #endif
-
         input.Set(data);
     }
+
 
     public void OnConnectedToServer(NetworkRunner runner)
     {

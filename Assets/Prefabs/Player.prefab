@@ -12,8 +12,7 @@ GameObject:
   - component: {fileID: 4116268887923372660}
   - component: {fileID: 1780121736762840655}
   - component: {fileID: 7058617914305781400}
-  - component: {fileID: 9024445380050183166}
-  - component: {fileID: 3867277459976610414}
+  - component: {fileID: 8793926133337572053}
   m_Layer: 0
   m_Name: Player
   m_TagString: Paddle
@@ -55,9 +54,7 @@ MonoBehaviour:
   NestedObjects: []
   NetworkedBehaviours:
   - {fileID: 7058617914305781400}
-  - {fileID: 9024445380050183166}
-  - {fileID: 3867277459976610414}
-  - {fileID: 1306030582527049958}
+  - {fileID: 8793926133337572053}
   ForceRemoteRenderTimeframe: 0
 --- !u!61 &1780121736762840655
 BoxCollider2D:
@@ -118,19 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 4
---- !u!114 &9024445380050183166
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3332152468614936649}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d102b68f5e405241986cdc4a03deb56, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &3867277459976610414
+--- !u!114 &8793926133337572053
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -157,7 +142,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1597500164255860921}
   - component: {fileID: 2371312690165519805}
-  - component: {fileID: 1306030582527049958}
   m_Layer: 0
   m_Name: Visuals
   m_TagString: Untagged
@@ -238,16 +222,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1306030582527049958
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6017114200024722535}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a60fc5659011e964fafabac7d3cfe87e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _PlayerColor: {r: 0, g: 0, b: 0, a: 0}

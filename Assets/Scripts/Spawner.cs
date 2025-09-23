@@ -1,23 +1,31 @@
-using Fusion;
+﻿using Fusion;
+using System.Linq;
 using UnityEngine;
 
-public class Spawner : NetworkBehaviour
+public class Spawner : NetworkBehaviour, IPlayerJoined
 {
-    [SerializeField] private GameObject Ball;
+    public GameObject PlayerPrefab;
+    public GameObject Ball;
+    public Vector3[] spawnPositions;
 
-    // make instance of this
-    public static Spawner Instance { get; private set; }
-
-    private void Awake()
+    public override void Spawned()
     {
-        Instance = this;
+        int index = Runner.LocalPlayer.RawEncoded % spawnPositions.Length;
+        Runner.Spawn(PlayerPrefab, spawnPositions[index], Quaternion.identity, Runner.LocalPlayer);
     }
 
     public void SpawnBall()
     {
-        if (Object.HasStateAuthority)
-        {
-            Runner.Spawn(Ball, Vector3.zero, Quaternion.identity);
-        }
+        if (HasStateAuthority == false)
+            return;
+
+        Runner.Spawn(Ball, Vector3.zero, Quaternion.identity);
+    }
+
+    public void PlayerJoined(PlayerRef player)
+    {
+        if (Runner.ActivePlayers.Count() >= 2)
+            SpawnBall();
     }
 }
+

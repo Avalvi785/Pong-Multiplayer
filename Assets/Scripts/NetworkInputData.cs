@@ -14,6 +14,7 @@ public struct NetworkInputData : INetworkInput
     public NetworkButtons Buttons;
     public Vector2 position;
     public bool HasInput;
+    public float targetY;
 
     public bool GetButton(InputButton button)
     {
